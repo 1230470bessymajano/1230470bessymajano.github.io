@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Michroma&display=swap');
+
+:root {
+  /* Paleta de colores espacial */
+  --color-bg-start: #471699;
+  --color-bg-mid: #a155db;
+  --color-bg-end: #5f5dc0;
+  --color-accent: #36e0fa;
+  --color-deep: #4b0e99;
+  --color-text: whitesmoke;
+  
+  /* Tipografías aplicadas */
+  --font-headings: 'Michroma', sans-serif; /* Títulos (Dinámica y Futurista) */
+  --font-main: 'Inter', sans-serif;         /* Texto base (Limpia y Moderna) */
+}
+
+.secondary-section {
+  background: #391075; 
+  border-top: 1px solid rgba(255, 255, 255, 0.05); 
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background: linear-gradient(to bottom, var(--color-bg-start), var(--color-bg-mid), var(--color-bg-end));
+  min-height: 100vh;
+  overflow-x: hidden; 
+  color: var(--color-text);
+}
+
+/* ==========================================================================
+   4. MENÚ DE NAVEGACIÓN (HEADER)
+   ========================================================================== */
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 25px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000; 
+}
+
+#header .logo {
+  font-family: var(--font-headings);
+  color: white;
+  text-shadow: 2px 2px var(--color-deep);
+  font-size: 1.4rem;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+#header ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#header ul li {
+  margin-left: 20px;
+  list-style-type: none;
+}
+
+#header ul li a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  color: var(--color-accent);
+  border-radius: 21px;
+  transition: all 0.3s ease;
+}
+
+#header ul li a:hover,
+#header ul li a.active {
+  background: whitesmoke;
+  color: #393885;
+}
+
+/* ==========================================================================
+   5. SECCIÓN HERO Y MANEJO DE CAPAS 
+   ========================================================================== */
+#hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to top, var(--color-deep), transparent);
+  z-index: 10;
+  pointer-events: none;
+}
+
+
+#hero img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none; 
+  will-change: transform;
+}
+
+#stars { z-index: 1; }
+#moon3 { z-index: 2; }
+#moon1 { z-index: 3; }
+#moon2 { z-index: 4; }
+#hero-text { z-index: 5; } 
+#land { z-index: 6; }      
+
+#cohete {
+  z-index: 55; 
+  width: 200px !important; 
+  height: auto !important; 
+  top: auto !important;    
+  left: 10% !important;    
+  bottom: 150px;           
+}
+
+/* ==========================================================================
+   6. CONTENEDOR DE TEXTO (UBICACIÓN PERFECTA EN EL CIELO)
+   ========================================================================== */
+#hero-text {
+  position: absolute;
+  top: 38%; 
+  text-align: center;
+  color: white;
+  width: 100%;
+  padding: 0 20px;
+}
+
+#hero-text span {
+  display: block;
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+  color: var(--color-accent);
+}
+
+#hero-text h1 {
+  font-family: var(--font-headings);
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem); 
+  line-height: 1.0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  
+  /* Ajustes para engrosar la tipografía (Bold forzado) */
+  font-weight: bold; 
+  -webkit-text-stroke: 1.5px white; 
+  text-shadow: 1.5px white;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Botón "Explorar" */
+.btn-explore {
+  display: inline-block;
+  margin-top: 1rem; /* Pegado armoniosamente al título */
+  padding: 10px 35px;
+  background: var(--color-deep);
+  color: white;
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: all; /* Activa la capacidad de hacer click */
+  transition: all 0.3s ease;
+}
+
+.btn-explore:hover {
+  background: var(--color-accent);
+  color: var(--color-deep);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(54, 224, 250, 0.6);
+}
+
+/* ==========================================================================
+   7. SECCIÓN DE CONTENIDO INFERIOR
+   ========================================================================== */
+.content-section {
+  position: relative;
+  background: var(--color-deep);
+  color: var(--color-text);
+  padding: 120px 80px;
+  z-index: 20; /* Tapa todo el efecto parallax al hacer scroll hacia abajo */
+}
+
+.content-section h2 {
+  font-family: var(--font-headings);
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.content-section p {
+  max-width: 750px;
+  line-height: 1.8;
+  font-size: 1.15rem;
+  color: rgba(245, 245, 245, 0.85);
+}

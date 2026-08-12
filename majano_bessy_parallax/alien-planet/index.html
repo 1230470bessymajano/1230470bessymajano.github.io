@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alien Planet — Parallax</title>
+
+    <!-- El CSS se vincula en el <head> para evitar FOUC -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+
+<header id="header">
+    <a href="#" class="logo">Alien Planet</a>
+    <nav>
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#destination">Destination</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="hero">
+    <!-- CAPA 1: Más atrás → se moverá más lento -->
+    <img src="assets/img/stars.png" id="stars" alt="Cielo estrellado" />
+
+    <!-- CAPA 2: Luna al fondo derecho -->
+    <img src="assets/img/moon3.png" id="moon3" alt="Luna lejana" />
+
+    <!-- CAPA 3 y 4: Lunas en plano medio -->
+    <img src="assets/img/moon1.png" id="moon1" alt="Luna mediana" />
+    <img src="assets/img/moon2.png" id="moon2" alt="Luna pequeña" />
+
+    <!-- TEXTO: Sobre las lunas pero bajo el terreno -->
+    <div id="hero-text">
+        <span>Es tiempo de una nueva</span>
+        <h1>Aventura</h1>
+        <a href="#about" class="btn-explore">Explorar</a>
+    </div>
+
+    <img src="assets/img/cohete.png" id="cohete" alt="Cohete espacial explorador" />
+
+    <!-- CAPA 5: Más al frente → se moverá más rápido -->
+    <img src="assets/img/land.png" id="land" alt="Terreno alienígena" />
+</section>
+
+<section id="about" class="content-section">
+    <h2>El Efecto Parallax</h2>
+    <p>
+        Una técnica de diseño web que crea profundidad visual al desplazar distintas
+        capas a velocidades diferentes durante el scroll del usuario.
+    </p>
+</section>
+
+    <!-- El JS se vincula al final del <body> para no bloquear el render -->
+    <script src="assets/js/parallax.js"></script>
+</body>
+
+</html>
